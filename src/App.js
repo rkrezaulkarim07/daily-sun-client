@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// import { Box } from "@material-ui/core";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import AppWithRouterAccess from './AppWithRouterAccess ';
+import ContextProvider from './Context/ContextProvider';
+// import DetailView from "./components/Details/DetailView";
+// import Header from "./components/Header/Header";
+// import Home from "./components/Home/Home";
+// import CreatePost from "./components/Create/CreatePost";
+// import Update from "./components/Create/Update";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextProvider>
+      <BrowserRouter>
+        <AppWithRouterAccess/>
+         {/* <Header />
+        <Box style={{marginTop: 64}}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/details/:id' component={DetailView} />
+            <Route exact path='/create' component={CreatePost} />
+            <Route exact path='/update/:id' component={Update} />
+          </Switch>
+        </Box> */}
+      </BrowserRouter>
+    </ContextProvider>
   );
 }
 
